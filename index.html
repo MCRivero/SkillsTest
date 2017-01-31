@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="fourSquare" >
+    <head>
+		<title>Test</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.united.min.css"/>
+		<link rel="stylesheet" href="assets/css/styles.css"/>
+	</head>
+    <body ng-controller="ApiLoadCtrl">
+		<div class="container">
+			<h2>Search for popular venues</h2>
+			<div class="row">
+				<div class="input-group col-md-12">
+					<input class="form-control input-lg" type="text"  placeholder="Search location..." ng-model="near" />
+					<span class="input-group-btn">
+						<button class="btn btn-info btn-lg" type="button" ng-click="loadLocations(near)">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</span>
+				</div>
+			</div>
+			<div class="top-margin"></div>
+			<div class="row">
+				<ul class="list-group" ng-repeat="groups in result.data.response.groups"  ng-hide="showAlert">
+					<li class="list-group-item" ng-repeat="item in groups.items">					
+						<h4 class="title" ng-bind="item.venue.name"></h4>
+						<h5 class="item" ng-bind="item.venue.location.formattedAddress"></h5>
+					</li>
+				</ul>
+			</div>
+			<div class="alert alert-danger" role="alert" ng-show="showAlert">
+				<h4><span class="glyphicon glyphicon-exclamation-sign" ng-bind="error"></span></h4>
+			</div>
+		</div><!-- container -->
+		
+		<script src="lib/jquery/dist/jquery.min.js"></script>
+		<script src="lib/jquery-ui/ui/jquery-ui.js"></script>
+        <script src="lib/angular/angular.min.js"></script>
+		
+		<script src="assets/js/app.js"></script>
+    </body>
+</html>
