@@ -9,3 +9,17 @@
 .item {
 	font-weight: bold; 
 }
+
+.border {
+	border: none; 
+}
+
+.top {
+	font-size: 1.5em;
+	margin-left: 49em;
+	color: #511c39;
+}
+
+.top:hover {
+    color: #772953;
+}
